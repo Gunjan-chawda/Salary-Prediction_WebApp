@@ -66,6 +66,12 @@ Make sure your `Salary_Dataset.csv` is placed in the root directory. It must inc
 python app.py
 ```
 
+### 5. Run for WebApp Output
+
+```bash
+streamlit run app.py
+```
+
 ## 📈 Output Example
 
 ```bash
