@@ -1,101 +1,84 @@
 # Salary-Prediction_WebApp
 
-## Project Overview
+This project is a **Machine Learning pipeline** for predicting salaries based on features such as company name, job title, location, rating, and employment status. It is trained using a **Linear Regression model** and supports **end-to-end prediction** with preprocessing included via a `Pipeline`.
 
-This project is a Machine Learning-based salary prediction model designed for software professionals. It uses various job-related features such as company name, job title, location, employment status, and company rating to predict the expected annual salary. The model helps job seekers, recruiters, and HR professionals estimate a fair salary based on real-world data.
+## 📁 Project Structure
 
-## Features
+```bash
+.
+├── app.py                 # Script to train and save the model
+├── main.py                # (same as app.py, can be cleaned up later)
+├── model/
+│   └── salary_model.pkl   # Trained and saved model
+├── Salary_Dataset.csv     # Dataset used for training
+└── README.md              # Project documentation
+````
 
-* Predicts software professional salary based on multiple factors.
-* Uses a Random Forest Regression model for accurate predictions.
-* Interactive web application built with Streamlit for easy use.
-* Encodes categorical variables like company, job title, location, and employment status for model training.
-* Provides both annual and approximate monthly salary estimates.
+## 🔍 Features
 
-## Dataset
+* ✅ Uses `pandas` for data manipulation
+* ✅ Preprocessing with `OneHotEncoder` for categorical features
+* ✅ Model building using `LinearRegression`
+* ✅ Metrics: R² Score and Mean Absolute Error (MAE)
+* ✅ Saved model using `joblib` for future use
 
-The model is trained on a dataset containing software professional salaries, along with related attributes such as:
+## 📊 Input Features
 
-* Rating (company rating)
-* Company Name
-* Job Title
-* Location
-* Employment Status (e.g., Full-time, Freelancer)
+The model takes the following features as input:
 
-## How It Works
+* `Rating` (numerical)
+* `Company Name` (categorical)
+* `Job Title` (categorical)
+* `Location` (categorical)
+* `Employment Status` (categorical)
 
-1. **Data Preprocessing:**
+## 🏃 How to Run
 
-   * Replaces certain categories (e.g., "Contractor" with "Freelancer") for consistency.
-   * Encodes categorical columns into numeric values using Label Encoding.
-   * Splits data into training and testing sets.
+### 1. Clone the Repository
 
-2. **Model Training:**
-
-   * Uses Random Forest Regressor to learn the relationship between features and salary.
-   * Saves the trained model and label encoders for use in the web app.
-
-3. **Web App Prediction:**
-
-   * Allows users to select job-related inputs from dropdown menus.
-   * Inputs are encoded and fed into the trained model.
-   * Displays predicted salary and monthly salary estimate.
-
-## Technologies Used
-
-* Python
-* Pandas
-* Scikit-learn
-* Joblib
-* Streamlit
-
-## Installation
-
-To run the project locally:
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   ```
-2. Navigate into the project directory:
-
-   ```bash
-   cd your-repo-name
-   ```
-3. Install the required packages:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the Streamlit app:
-
-   ```bash
-   streamlit run app.py
-   ```
-
-## Usage
-
-* Open the Streamlit app in your browser.
-* Select your Company Name, Job Title, Location, Employment Status, and Rate the company.
-* Click **Predict Salary**.
-* See the predicted annual and monthly salary displayed.
-
-## Folder Structure
-
-```
-├── app.py                 # Streamlit web application
-├── main.py                # Model training script
-├── model/                 # Contains saved model and label encoders
-├── Salary_Dataset.csv     # Dataset file
-├── requirements.txt       # Required Python packages
-├── README.md              # Project documentation
+```bash
+git clone https://github.com/your-username/salary-predictor.git
+cd salary-predictor
 ```
 
-## Future Work
+### 2. Install Requirements
 
-* Improve model accuracy with more data and advanced algorithms.
-* Add support for more job titles and companies.
-* Integrate salary trends over time and location-based cost-of-living adjustments.
-* Deploy the app on cloud platforms for wider accessibility.
+Make sure Python is installed (preferably 3.7+), then install dependencies:
 
+```bash
+pip install pandas scikit-learn joblib
+```
+
+### 3. Add Dataset
+
+Make sure your `Salary_Dataset.csv` is placed in the root directory. It must include at least the following columns:
+
+* `Salary`
+* `Rating`
+* `Company Name`
+* `Job Title`
+* `Location`
+* `Employment Status`
+
+### 4. Run the Training Script
+
+```bash
+python app.py
+```
+
+## 📈 Output Example
+
+```bash
+📁 Loading data...
+✅ Data loaded. Preprocessing...
+🏃 Training model... please wait.
+📊 R² Score (Accuracy): 0.83
+📊 MAE: ₹173,474.05
+✅ Model saved successfully.
+```
+
+## 🧠 Future Improvements
+
+* Add streamlit or flask-based frontend for predictions
+* Support for more advanced models (e.g., Random Forest, XGBoost)
+* Add data visualization for better insights
